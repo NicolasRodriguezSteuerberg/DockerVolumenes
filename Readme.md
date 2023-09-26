@@ -45,7 +45,7 @@
 
 5. **Realiza un 'hola mundo' en html(usa Code) y comprueba que accedes desde el navegador**
 
-    + Para este apartado tendremos que crear un index.html en la carpeta htdocs. Y escribir el html, ejemplo:
+    + Para este apartado tendremos que crear un index.html en la carpeta htdocs. Y escribir el html, ejemplo:<a name="enlace4"></a>
     ```html
     <!DOCTYPE html>
     <html lang="en">
@@ -68,15 +68,17 @@
 
 <br>
 
-7. **Crea un contenedor 'dam_web1' que use este volumen para el 'htdocs'**
+7. **Comprueba que los dos servidores 'sirven' la misma página, es decir, cuando consultamos en el navegador:**
 
-8. **Utiliza Code para hacer un hola mundo en html**
+    <a name="enlace5"></a>
+    Para comprobar que los dos servidores 'sirven' para la misma pagina simplenmente tendremos que poner en el navegador nuestra ip/localhost con el puerto:
 
-9. **Crea otro contenedor 'dam_web2' con el mismo volumen y a otro puerto, por ejemplo 9080**
+    - localhost:9080
+    - localhost:8000
 
-10. **Comprueba que los dos servidores 'sirven' la misma página, es decir, cuando consultamos en el navegador:**
+<br>
 
-    - http://localhost:9080
-    - http://localhost:8000
+8. **Realiza modificaciones de la página y comprueba que los dos servidores 'sirven' la misma página**
 
-11. **Tienen que salir la misma página web**
+    + Para esto, primero abriremos el *index.html* que hemos creado en el apartado [5](#enlace4) y lo editaremos, por ejemplo el h1 cambiando el ''Hola mundo'' por ''Hola gente de dam''
+    + Seguido de esto haremos lo mismo que en el apartado [anterior](#enlace5)
