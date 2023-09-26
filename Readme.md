@@ -10,7 +10,7 @@
 
     + <a name="enlace1"></a>Para crear un contenedor primero tenemos que buscar las imagenes para poder descargarlas, esto lo miramos desde la pagina web de [docker](https://hub.docker.com/search?q=). Para crear el contenedor con la imagen httpd usaremos el siguiente comando:
         <a name="enlace2"></a>
-        >`docker run -dit --name dam_httpd httpd:2.4`
+        >`docker run -dit --name dam_web1 httpd:2.4`
 
         El parametro *--name* nos permite poner un nombre específico al contenedor.
     
@@ -34,8 +34,8 @@
 4. **Utiliza bind mount para que el directorio del apache2 'htdocs' este montado en un directorio que tu elijas**
 
     + Para montar el htdocs en un directorio que elijas, primero tenemos que borrar el contenedor.
-    + Seguido de esto usaremos el mismo comando que el apartado [2](#enlace2) añadiendo antes de la imagen la variable -v Directorio_a_Usar:Directorio_donde_estaba. Este seria un ejemplo:
-        > `docker run -dit --name dam_httpd -p 8000:80 -v /home/dam2/Documentos/Repositorios/Volumenes/htdocs:/usr/local/apache2/htdocs httpd:2.4`
+    + Seguido de esto usaremos el mismo comando que el apartado [2](#enlace2) añadiendo antes de la imagen la variable -v Directorio_a_Usar:Directorio_donde_estaba. Este seria un ejemplo:<a name="enlace3"></a>        
+        > `docker run -dit --name dam_web1 -p 8000:80 -v /home/dam2/Documentos/Repositorios/Volumenes/htdocs:/usr/local/apache2/htdocs httpd:2.4`
     + A parte de añadir lo del directorio tambien hemos realizado un mapeo de puertos añadiendo la variable -p puertoMaquina:PuertoContenedor
 
     + ¿Como sabemos que ha funcionado? Simplemente poniendo nuestra ip en el navegador : y puerto de la maquina, ejemplo:
@@ -43,10 +43,30 @@
     
     <br>
 
-5. **Realiza un 'hola mundo' en html y comprueba que accedes desde el navegador**
+5. **Realiza un 'hola mundo' en html(usa Code) y comprueba que accedes desde el navegador**
 
+    + Para este apartado tendremos que crear un index.html en la carpeta htdocs. Y escribir el html, ejemplo:
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Hola mundo</h1>
+    </body>
+    </html>
+    ```
+<br>
 
-6. **Crea un volumen para eset mismo fin**
+6. **Crea otro contenedor 'dam_web2' con el mismo volumen y a otro puerto, por ejemplo 9080**
+
+    + Como en el apartado [4](#enlace3) usaremos el mismo comando cambiando el 8000 por 9080 y el nombre del contenedor:
+        > `docker run -dit --name dam_web2 -p 9080:80 -v /home/dam2/Documentos/Repositorios/Volumenes/htdocs:/usr/local/apache2/htdocs httpd:2.4`
+
+<br>
 
 7. **Crea un contenedor 'dam_web1' que use este volumen para el 'htdocs'**
 
